@@ -1,0 +1,35 @@
+/*********************************/
+/* Author   :   Spectrum         */
+/* Date     :   20 Sep 2021      */
+/* Version  :   V01              */
+/*********************************/
+
+#ifndef _RCC_PRIVATE_H
+#define _RCC_PRIVATE_H
+
+/* Register Definitions */
+#define RCC_CR	        (*((volatile const u32*) (0x40021000)))
+#define RCC_CFGR	    (*((volatile const u32*) (0x40021004)))
+#define RCC_CIR	        (*((volatile const u32*) (0x40021008)))
+#define RCC_APB2RSTR	(*((volatile const u32*) (0x4002100C)))
+#define RCC_APB1RSTR	(*((volatile const u32*) (0x40021010)))
+#define RCC_AHBENR	    (*((volatile const u32*) (0x40021014)))
+#define RCC_APB2ENR	    (*((volatile const u32*) (0x40021018)))
+#define RCC_APB1ENR	    (*((volatile const u32*) (0x4002101C)))
+#define RCC_BDCR	    (*((volatile const u32*) (0x40021020)))
+#define RCC_CSR	        (*((volatile const u32*) (0x40021024)))
+
+/* Clock Types */
+#define RCC_HSE_CRYSTAL		0
+#define RCC_HSE_RC			1
+#define RCC_HSI				2
+#define RCC_PLL				3
+
+/*PLL Ooptions */
+#define RCC_PLL_IN_HSI_DIV_2	0
+#define	RCC_PLL_IN_HSE_DIV_2	1
+#define	RCC_PLL_IN_HSE			2
+
+
+
+#endif
