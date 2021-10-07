@@ -10,6 +10,25 @@
 #include "NVIC_private.h"
 #include "NVIC_config.h"
 
+void MNVIC_voidInit()
+{
+#define SCB_AIRCR	(*((volatile u32*) (0xE000ED0C)))
+	SCB_AIRCR =MNVIC_GROUP_SUB_DISTRIBUTION;
+}
+
+void MNVIC_voidSetPriority(u8 Copy_u8PeripheralIdx, u8 Copy_u8Priority)
+{
+	if(Copy_u8PeripheralIdx < 60)
+	{
+		NVIC_IPR[Copy_u8PeripheralIdx] = Copy_u8Priority;
+	}
+
+	else
+	{
+
+	}
+}
+
 void MNVIC_voidEnableInterrupt(u8 Copy_u8IntNumber)
 {
 	if(Copy_u8IntNumber <= 31)
