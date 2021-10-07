@@ -46,7 +46,7 @@ void RCC_voidDisableClock(u8 Copy_u8Bus, u8 Copy_u8PerID)
     }
 }
 
-void RCC_voidIniteClock(void)
+void RCC_voidInitClock(void)
 {
 	 #if 	RCC_CLOCK_TYPE == RCC_HSE_CRYSTAL
 		RCC_CR   = 0x00010000;	/*Enable HSE with no bypass*/
@@ -64,6 +64,7 @@ void RCC_voidIniteClock(void)
 		
 		#elif RCC_PLL_INPUT = RCC_PLL_IN_DIV_2
 		RCC_CR = 0x01000000;	/*Enable PLL*/
+		#endif
 	 #else
 		#error("You chosed Wrong Clock")
 	 #endif	 

@@ -10,7 +10,6 @@
 #include "GPIO_private.h"
 #include "GPIO_config.h"
 
-/*Set Pin Direction by Knowing its Mode*/
 void MGPIO_voidSetPinDirection(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Mode)
 {
 	switch(copy_u8PORT)
@@ -241,87 +240,3 @@ u8 MGPIO_u8GetPinValue(u8 copy_u8PORT, u8 copy_u8PIN)
 	return LOC_u8Result;
 }
 
-void MGPIO_voidLockPin(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Value)
-{
-	switch(copy_u8PORT)
-	{
-	case GPIOA:
-		if(copy_u8Value)
-		{
-			SET_Bit(GPIOA_LCKR, copy_u8PIN);
-		}
-		else
-		{
-			CLR_Bit(GPIOA_LCKR, copy_u8PIN);
-		}
-		break;
-
-	case GPIOB:
-		if(copy_u8Value)
-		{
-			SET_Bit(GPIOB_LCKR, copy_u8PIN);
-		}
-		else
-		{
-			CLR_Bit(GPIOB_LCKR, copy_u8PIN);
-		}
-		break;
-
-	case GPIOC:
-		if(copy_u8Value)
-		{
-			SET_Bit(GPIOC_LCKR, copy_u8PIN);
-		}
-		else
-		{
-			CLR_Bit(GPIOC_LCKR, copy_u8PIN);
-		}
-		break;
-
-	case GPIOD:
-		if(copy_u8Value)
-		{
-			SET_Bit(GPIOD_LCKR, copy_u8PIN);
-		}
-		else
-		{
-			CLR_Bit(GPIOD_LCKR, copy_u8PIN);
-		}
-		break;
-
-	case GPIOE:
-		if(copy_u8Value)
-		{
-			SET_Bit(GPIOE_LCKR, copy_u8PIN);
-		}
-		else
-		{
-			CLR_Bit(GPIOE_LCKR, copy_u8PIN);
-		}
-		break;
-
-	case GPIOF:
-		if(copy_u8Value)
-		{
-			SET_Bit(GPIOF_LCKR, copy_u8PIN);
-		}
-		else
-		{
-			CLR_Bit(GPIOF_LCKR, copy_u8PIN);
-		}
-		break;
-
-	case GPIOG:
-		if(copy_u8Value)
-		{
-			SET_Bit(GPIOG_LCKR, copy_u8PIN);
-		}
-		else
-		{
-			CLR_Bit(GPIOG_LCKR, copy_u8PIN);
-		}
-		break;
-
-		default: break;
-	}
-}

@@ -11,4 +11,8 @@
 #define RCC_APB1    1
 #define RCC_APB2    2
 
+void RCC_voidEnableClock(u8 Copy_u8Bus, u8 Copy_u8PerID);
+void RCC_voidDisableClock(u8 Copy_u8Bus, u8 Copy_u8PerID);
+void RCC_voidInitClock(void);
+
 #endif
