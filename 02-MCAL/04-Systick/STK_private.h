@@ -17,5 +17,6 @@
 #define STK_VAL		(*((volatile u32*) (STK_BASE_ADDRESS + 0x08)))
 #define STK_CALIB	(*((volatile u32*) (STK_BASE_ADDRESS + 0x0C)))
 
+static void (*CallBack_Systick) (void);
 
 #endif

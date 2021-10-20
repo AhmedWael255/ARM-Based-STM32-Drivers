@@ -4,19 +4,18 @@
 /* Version  :   V01              */
 /*********************************/
 
-#include "../04-Systick/STK_Config.h"
-#include "../04-Systick/STK_interface.h"
-#include "../04-Systick/STK_private.h"
 #include "STD_Types.h"
 #include "BIT_Math.h"
+#include "STK_Config.h"
+#include "STK_interface.h"
+#include "STK_private.h"
 
-static void CallBack_Systick(void);
 
-void STK_voidInit(const STK_Configure * STK_ptr)
+void STK_voidInit()
 {
 	/*Enable Systick*/
 	SET_Bit(STK_CTRL, ENABLE);
-	STK_CTRL = ((STK_CTRL & 0x00000008) | (STK_ptr -> clk));
+	STK_CTRL = ((STK_CTRL & 0x00000008) | STK_CLK);
 #ifdef	STK_ENABLE_INTERRUPT
 	SET_Bit(STK_CTRL, TICKINT);
 #endif

@@ -79,4 +79,14 @@
 #define GPIOG_BRR	(*((volatile u32*) (GPIOG_BASE_ADDRESS + 0x14)))
 #define GPIOG_LCKR	(*((volatile u32*) (GPIOG_BASE_ADDRESS + 0x18)))
 
+/*AFIOs Register Address*/
+#define AFIO_BASE_ADDRESS	0x40010000
+#define AFIO_EVCR			(*((volatile u32*) (AFIO_BASE_ADDRESS + 0x00)))
+#define AFIO_MAPR			(*((volatile u32*) (AFIO_BASE_ADDRESS + 0x04)))
+#define AFIO_EXTICR1		(*((volatile u32*) (AFIO_BASE_ADDRESS + 0x08)))
+#define AFIO_EXTICR2		(*((volatile u32*) (AFIO_BASE_ADDRESS + 0x0C)))
+#define AFIO_EXTICR3		(*((volatile u32*) (AFIO_BASE_ADDRESS + 0x10)))
+#define AFIO_EXTICR4		(*((volatile u32*) (AFIO_BASE_ADDRESS + 0x14)))
+#define AFIO_MAPR2			(*((volatile u32*) (AFIO_BASE_ADDRESS + 0x1C)))
+
 #endif

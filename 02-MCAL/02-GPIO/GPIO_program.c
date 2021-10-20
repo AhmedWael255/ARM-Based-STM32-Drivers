@@ -10,7 +10,7 @@
 #include "GPIO_private.h"
 #include "GPIO_config.h"
 
-void MGPIO_voidSetPinDirection(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Mode)
+void GPIO_voidSetPinDirection(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Mode)
 {
 	switch(copy_u8PORT)
 	{
@@ -117,7 +117,7 @@ void MGPIO_voidSetPinDirection(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Mode)
 
 }
 
-void MGPIO_voidSetPinValue(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Value)
+void GPIO_voidSetPinValue(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Value)
 {
 	switch(copy_u8PORT)
 		{
@@ -202,7 +202,7 @@ void MGPIO_voidSetPinValue(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Value)
 		}
 }
 
-u8 MGPIO_u8GetPinValue(u8 copy_u8PORT, u8 copy_u8PIN)
+u8 GPIO_u8GetPinValue(u8 copy_u8PORT, u8 copy_u8PIN)
 {
 	u8 LOC_u8Result;
 	switch(copy_u8PORT)
@@ -238,5 +238,292 @@ u8 MGPIO_u8GetPinValue(u8 copy_u8PORT, u8 copy_u8PIN)
 		default: break;
 	}
 	return LOC_u8Result;
+}
+
+void AFIO_voidSetSrcInput(u8 Copy_u8EXTINumber, EXTI_SELECT_PORT port)
+{
+	switch(port)
+	{
+	case EXTI_PA:
+		if(Copy_u8EXTINumber == 0)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FFF0) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 4)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FFF0) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 8)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FFF0) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 12)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FFF0) | EXTI_PA);
+
+		else if(Copy_u8EXTINumber == 1)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FF0F) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 5)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FF0F) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 9)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FF0F) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 13)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FF0F) | EXTI_PA);
+
+		else if(Copy_u8EXTINumber == 2)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000F0FF) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 6)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000F0FF) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 10)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000F0FF) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 14)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000F0FF) | EXTI_PA);
+
+		else if(Copy_u8EXTINumber == 3)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x00000FFF) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 7)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x00000FFF) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 11)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x00000FFF) | EXTI_PA);
+		else if(Copy_u8EXTINumber == 15)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x00000FFF) | EXTI_PA);
+
+		else
+			return;
+		break;
+
+	case EXTI_PB:
+		if(Copy_u8EXTINumber == 0)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FFF0) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 4)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FFF0) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 8)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FFF0) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 12)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FFF0) | EXTI_PB);
+
+		else if(Copy_u8EXTINumber == 1)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FF0F) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 5)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FF0F) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 9)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FF0F) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 13)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FF0F) | EXTI_PB);
+
+		else if(Copy_u8EXTINumber == 2)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000F0FF) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 6)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000F0FF) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 10)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000F0FF) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 14)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000F0FF) | EXTI_PB);
+
+		else if(Copy_u8EXTINumber == 3)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x00000FFF) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 7)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x00000FFF) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 11)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x00000FFF) | EXTI_PB);
+		else if(Copy_u8EXTINumber == 15)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x00000FFF) | EXTI_PB);
+		else
+			return;
+		break;
+
+	case EXTI_PC:
+		if(Copy_u8EXTINumber == 0)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FFF0) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 4)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FFF0) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 8)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FFF0) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 12)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FFF0) | EXTI_PC);
+
+		else if(Copy_u8EXTINumber == 1)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FF0F) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 5)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FF0F) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 9)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FF0F) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 13)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FF0F) | EXTI_PC);
+
+		else if(Copy_u8EXTINumber == 2)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000F0FF) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 6)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000F0FF) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 10)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000F0FF) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 14)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000F0FF) | EXTI_PC);
+
+		else if(Copy_u8EXTINumber == 3)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x00000FFF) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 7)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x00000FFF) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 11)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x00000FFF) | EXTI_PC);
+		else if(Copy_u8EXTINumber == 15)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x00000FFF) | EXTI_PC);
+		else
+			return;
+		break;
+
+	case EXTI_PD:
+		if(Copy_u8EXTINumber == 0)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FFF0) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 4)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FFF0) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 8)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FFF0) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 12)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FFF0) | EXTI_PD);
+
+		else if(Copy_u8EXTINumber == 1)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FF0F) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 5)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FF0F) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 9)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FF0F) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 13)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FF0F) | EXTI_PD);
+
+		else if(Copy_u8EXTINumber == 2)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000F0FF) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 6)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000F0FF) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 10)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000F0FF) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 14)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000F0FF) | EXTI_PD);
+
+		else if(Copy_u8EXTINumber == 3)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x00000FFF) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 7)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x00000FFF) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 11)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x00000FFF) | EXTI_PD);
+		else if(Copy_u8EXTINumber == 15)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x00000FFF) | EXTI_PD);
+		else
+			return;
+		break;
+
+	case EXTI_PE:
+		if(Copy_u8EXTINumber == 0)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FFF0) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 4)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FFF0) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 8)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FFF0) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 12)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FFF0) | EXTI_PE);
+
+		else if(Copy_u8EXTINumber == 1)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FF0F) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 5)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FF0F) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 9)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FF0F) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 13)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FF0F) | EXTI_PE);
+
+		else if(Copy_u8EXTINumber == 2)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000F0FF) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 6)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000F0FF) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 10)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000F0FF) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 14)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000F0FF) | EXTI_PE);
+
+		else if(Copy_u8EXTINumber == 3)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x00000FFF) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 7)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x00000FFF) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 11)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x00000FFF) | EXTI_PE);
+		else if(Copy_u8EXTINumber == 15)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x00000FFF) | EXTI_PE);
+		else
+			return;
+		break;
+
+	case EXTI_PF:
+		if(Copy_u8EXTINumber == 0)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FFF0) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 4)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FFF0) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 8)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FFF0) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 12)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FFF0) | EXTI_PF);
+
+		else if(Copy_u8EXTINumber == 1)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FF0F) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 5)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FF0F) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 9)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FF0F) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 13)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FF0F) | EXTI_PF);
+
+		else if(Copy_u8EXTINumber == 2)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000F0FF) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 6)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000F0FF) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 10)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000F0FF) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 14)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000F0FF) | EXTI_PF);
+
+		else if(Copy_u8EXTINumber == 3)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x00000FFF) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 7)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x00000FFF) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 11)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x00000FFF) | EXTI_PF);
+		else if(Copy_u8EXTINumber == 15)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x00000FFF) | EXTI_PF);
+		else
+			return;
+		break;
+
+	case EXTI_PG:
+		if(Copy_u8EXTINumber == 0)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FFF0) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 4)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FFF0) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 8)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FFF0) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 12)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FFF0) | EXTI_PG);
+
+		else if(Copy_u8EXTINumber == 1)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000FF0F) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 5)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000FF0F) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 9)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000FF0F) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 13)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000FF0F) | EXTI_PG);
+
+		else if(Copy_u8EXTINumber == 2)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x0000F0FF) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 6)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x0000F0FF) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 10)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x0000F0FF) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 14)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x0000F0FF) | EXTI_PG);
+
+		else if(Copy_u8EXTINumber == 3)
+			AFIO_EXTICR1 = ((AFIO_EXTICR1 & 0x00000FFF) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 7)
+			AFIO_EXTICR2 = ((AFIO_EXTICR2 & 0x00000FFF) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 11)
+			AFIO_EXTICR3 = ((AFIO_EXTICR3 & 0x00000FFF) | EXTI_PG);
+		else if(Copy_u8EXTINumber == 15)
+			AFIO_EXTICR4 = ((AFIO_EXTICR4 & 0x00000FFF) | EXTI_PG);
+		else
+			return;
+		break;
+	}
 }
 

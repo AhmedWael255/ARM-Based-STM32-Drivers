@@ -47,17 +47,12 @@
 
 enum{Input, Output};
 
-/***************************************
- **** 	Define Registers Names		****
- **************************************/
-
-enum{A=2,B,C,D,E,F,G};
 
 /*******************************************
  **** 	Define Low as 0 and High as 1	****
  ******************************************/
 
-enum{Low, High};
+typedef enum{Low, High};
 
 /*******************************************
  **** 	Define Output Type and Speed	****
@@ -83,14 +78,21 @@ enum{Low, High};
 #define INPUT_FLOATING				0100
 #define INPUT_PUP_PDOWN				1000
 
+/***********************************************
+ **** 	Define AFIO EXT interrupt Config	****
+ **********************************************/
+
+typedef enum {EXTI_PA, EXTI_PB, EXTI_PC, EXTI_PD, EXTI_PE, EXTI_PF, EXTI_PG} EXTI_SELECT_PORT;
+
 /***********************
  **** 	Functions	****
  **********************/
 
-void MGPIO_voidSetPinDirection(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Mode);
-void MGPIO_voidSetPinValue(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Mode);
-u8 MGPIO_u8GetPinValue(u8 copy_u8PORT, u8 copy_u8PIN);
-void MGPIO_voidLockPin(u8 copy_u8PORT, u8 copy_u8PIN,  u8 copy_u8Value);
+void GPIO_voidSetPinDirection(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Mode);
+void GPIO_voidSetPinValue(u8 copy_u8PORT, u8 copy_u8PIN, u8 copy_u8Mode);
+u8 GPIO_u8GetPinValue(u8 copy_u8PORT, u8 copy_u8PIN);
+void GPIO_voidLockPin(u8 copy_u8PORT, u8 copy_u8PIN,  u8 copy_u8Value);
+void AFIO_voidSetSrcInput(u8 Copy_u8EXTINumber, EXTI_SELECT_PORT port);
 
 
 

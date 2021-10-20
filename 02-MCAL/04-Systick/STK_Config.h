@@ -7,17 +7,6 @@
 #ifndef STK_CONFIG_H_
 #define STK_CONFIG_H_
 
-typedef	enum
-{
-	CLK_AHB_8,CLK_AHB
-}STK_CLK;
-
-typedef struct
-{
-	STK_CLK	clk;
-}STK_Configure;
-
-
 /*STK_CTRL PINS*/
 #define COUNTFLAG	16
 #define CLKSOURCE	2
